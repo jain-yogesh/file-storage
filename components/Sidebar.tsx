@@ -17,9 +17,11 @@ const Sidebar = ({fullName, avatar, email} : myAppProps) => {
     const pathname = usePathname();
   return (
     <aside className='sidebar'>
-      <Link href={"/"}>
-        <Image src={"/assets/icons/logo-full-brand.svg"} alt='logo' width={160} height={50} className='hidden h-auto lg:block' />
-        <Image src={"/assets/icons/logo-brand.svg"} alt='logo' width={52} height={52} className='lg:hidden' />
+      <Link href={"/"} className='hidden lg:block'>
+        <div className='flex items-center justify-center text-center gap-x-3'>
+                    <Image src={"/logo-brand.png"} alt='Logo' width={51} height={52} className='h-auto' />
+                    <span className='text-brand text-3xl'>File Storage</span>
+                </div>
       </Link>
 
       <nav className='sidebar-nav'>

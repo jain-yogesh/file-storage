@@ -15,6 +15,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import FileUploader from "./FileUploader";
+import { signOutUser } from "@/lib/actions/user.actions";
 
 interface myAppProps {
   ownerId: string;
@@ -30,7 +31,10 @@ const MobileNavigation = ({ownerId, accountId, fullName, avatar, email} : myAppP
 
   return (
     <header className="mobile-header">
-      <Image src={"/assets/icons/logo-full-brand.svg"} alt="logo" width={120} height={52} className="h-auto" />
+      <div className='flex items-center text-center gap-x-2'>
+        <Image src={"/logo-brand.png"} alt='Logo' width={43} height={42} className='h-auto' />
+        <span className='text-brand text-2xl'>File Storage</span>
+      </div>
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
@@ -62,7 +66,7 @@ const MobileNavigation = ({ownerId, accountId, fullName, avatar, email} : myAppP
             <Separator className="my-5 bg-light-200/20" />
             <div className="flex flex-col justify-between gap-5 pb-5">
                 <FileUploader />
-                <Button type='submit' className='mobile-sign-out-button' onClick={() => {}}>
+                <Button type='submit' className='mobile-sign-out-button' onClick={async () => await signOutUser()}>
                     <Image src={"assets/icons/logout.svg"} alt='sign-out' width={24} height={24} />
                     <p>Logout</p>
                 </Button>
