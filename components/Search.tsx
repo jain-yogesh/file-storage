@@ -23,22 +23,23 @@ const Search = () => {
 
   useEffect(() => {
     const fetchFiles = async () => {
-
-      if(debouncedQuery.length === 0){
+      if (debouncedQuery.length === 0) {
         setResults([]);
         setOpen(false);
-        router.push(path.replace(searchParams.toString(), ""))
+        return router.push(path.replace(searchParams.toString(), ""));
       }
-      const files = await getFiles({types: [], searchText: debouncedQuery});
+
+      const files = await getFiles({ types: [], searchText: debouncedQuery });
       setResults(files.documents);
       setOpen(true);
-    }
+    };
 
     fetchFiles();
-  },[debouncedQuery]);
+  }, [debouncedQuery]);
+
 
   useEffect(() => {
-    if(searchQuery){
+    if(!searchQuery){
       setQuery("");
     }
   },[searchQuery]);
@@ -46,7 +47,7 @@ const Search = () => {
   const handleItemClick = (file : Models.Document) => {
     setOpen(false);
     setResults([]);
-    router.push(`/${(file.type === "video" || file.type === "audio") ? "media" : file.type + "s"}?query=${query}`)
+    router.push(`/${file.type === "video" || file.type === "audio" ? "media" : file.type + "s"}?query=${query}`,)
   }
 
   return (
