@@ -27,6 +27,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import { renameFile } from "@/lib/actions/file.actions";
+import { FileDetails } from "./ActionsModalContent";
   
 
   
@@ -80,6 +81,9 @@ const ActionDropdown = ({file} : {file: Models.Document}) => {
                     </DialogTitle>
                     {value === 'rename' && (
                         <Input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    )}
+                    {value === 'details' && (
+                        <FileDetails file={file} />
                     )}
                 </DialogHeader>
                 {['rename', 'delete', 'share'].includes(value) && (
