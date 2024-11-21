@@ -10,7 +10,7 @@ interface myAppProps {
     className?: string;
 }
 
-const Thumbnail = ({type, extension, url = "", imageClassName, className} : myAppProps) => {
+export const Thumbnail = ({type, extension, url = "", imageClassName, className} : myAppProps) => {
     const isImage = type === "image" && extension !== "svg";
 
   return (

@@ -1,6 +1,6 @@
 import { Models } from "node-appwrite";
-import Thumbnail from "./Thumbnail";
-import FormattedDateTime from "./FormattedDateTime";
+import Thumbnail from "@/components/Thumbnail";
+import FormattedDateTime from "@/components/FormattedDateTime";
 import { convertFileSize, formatDateTime } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
