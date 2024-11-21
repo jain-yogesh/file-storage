@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "File Store",
+  title: "File Storage",
   description: "The only solution for your file storage",
 };
 
