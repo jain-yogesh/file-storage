@@ -3,7 +3,9 @@ import Sort from '@/components/Sort';
 import { getFiles, getTotalSpaceUsed } from '@/lib/actions/file.actions';
 import { convertFileSize, getFileTypesParams, getUsageSummary } from '@/lib/utils';
 import { Models } from 'node-appwrite';
+import Image from "next/image";
 import React from 'react'
+import { navItems } from '@/constants';
 
 const page = async ({searchParams, params} : SearchParamProps) => {
     const type = (await params)?.type as string | "";
@@ -24,13 +26,22 @@ const page = async ({searchParams, params} : SearchParamProps) => {
   return (
     <div className=''>
       <section className='w-full'>
-        <h1 className='h1 capitalize'>{type}</h1>
+      {navItems.map(({url, name, icon}) => (
+        name.toLowerCase() === type.toLowerCase() && ( 
+          <div key={name} className='flex flex-1 gap-2 md:gap-3'>
+            <Image src={icon} alt={type} width={24} height={24} className="page-icon" />
+            <h1 className='text-[30px] leading-[36px] font-bold md:h1 capitalize'>{type}</h1>
+          </div>
+        )
+      ))}
 
         <div className='total-size-section'>
             <p className='body-1'>
                 Total Size : {" "}
                 {usageSummary.map((summary) => (
-                  summary.title.toLowerCase() === type.toLowerCase() && ( <span key={summary.title} className="h5">{convertFileSize(summary.size) || 0}</span> )
+                  summary.title.toLowerCase() === type.toLowerCase() && ( 
+                  <span key={summary.title} className="h5">{convertFileSize(summary.size) || 0}</span> 
+                )
                 ))}
             </p>
 

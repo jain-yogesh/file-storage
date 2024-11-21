@@ -253,6 +253,9 @@
   .sort-container {
     @apply mt-5 flex items-center sm:mt-0 sm:gap-3 !important;
   }
+  .page-icon {
+    @apply w-6 md:w-10 filter invert opacity-100 !important;
+  }
 
   /* ActionsDropdown */
   .rename-input-field {
@@ -337,7 +340,7 @@
     @apply h3 font-bold md:text-center lg:text-left !important;
   }
   .chart-description {
-    @apply subtitle-1 mt-2 w-full text-white/70 md:text-center lg:text-left !important;
+    @apply subtitle-1 mt-2 w-full text-white/70 md:text-center lg:pl-6 lg:text-left !important;
   }
 
   /* FileUploader */
@@ -399,7 +402,7 @@
 
   /* Search */
   .search {
-    @apply relative w-full md:max-w-[480px] !important;
+    @apply relative w-full md:max-w-[880px] !important;
   }
   .search-input-wrapper {
     @apply flex h-[52px] flex-1 items-center gap-3 rounded-full px-4 shadow-drop-3 !important;

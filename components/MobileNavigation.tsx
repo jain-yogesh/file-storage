@@ -54,7 +54,7 @@ const MobileNavigation = ({$id: ownerId, accountId, fullName, avatar, email} : m
             <nav className="mobile-nav">
               <ul className="mobile-nav-list">
               {navItems.map(({url, name, icon}) => (
-                  <Link href={url} key={name} className='lg:w-full '>
+                  <Link href={url} key={name} className='lg:w-full' onClick={() => setOpen(false)}>
                       <li className={cn("mobile-nav-item", pathname === url && 'shad-active')}>
                           <Image src={icon} alt={name} width={24} height={24} className={cn("nav-icon", pathname === url && 'nav-icon-active')} />
                           <p>{name}</p>
@@ -65,7 +65,7 @@ const MobileNavigation = ({$id: ownerId, accountId, fullName, avatar, email} : m
             </nav>
             <Separator className="my-5 bg-light-200/20" />
             <div className="flex flex-col justify-between gap-5 pb-5">
-                <FileUploader ownerId={ownerId} accountId={accountId} />
+                <FileUploader ownerId={ownerId} accountId={accountId} className="w-full font-bold" />
                 <Button type='submit' className='mobile-sign-out-button' onClick={async () => await signOutUser()}>
                     <Image src={"assets/icons/logout.svg"} alt='sign-out' width={24} height={24} />
                     <p>Logout</p>

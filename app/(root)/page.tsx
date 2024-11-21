@@ -12,7 +12,7 @@ import { Models } from "node-appwrite";
 const Dashboard = async () => {
   // Parallel requests
   const [files, totalSpace] = await Promise.all([
-    getFiles({ types: [], limit: 10 }),
+    getFiles({ types: [], limit: 9 }),
     getTotalSpaceUsed(),
   ]);
 
